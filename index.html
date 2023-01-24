@@ -4,16 +4,18 @@
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
     <script>
       function generateQR() {
-        var link = document.getElementById("link").value;
-        var qrcode = new QRCode("qrcode", {
-          text: link,
-          width: 256,
-          height: 256,
-          colorDark : "#000000",
-          colorLight : "#ffffff",
-          correctLevel : QRCode.CorrectLevel.H
-        });
-      }
+  var link = document.getElementById("link").value;
+  var qrcode = document.getElementById("qrcode");
+  qrcode.innerHTML = ""; // remove the old QR code
+  new QRCode(qrcode, {
+    text: link,
+    width: 256,
+    height: 256,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H
+  });
+}
     </script>
     <style>
       body {
