@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script>
+      function generateQR() {
+        var link = document.getElementById("link").value;
+        var qrcode = new QRCode("qrcode", {
+          text: link,
+          width: 256,
+          height: 256,
+          colorDark : "#000000",
+          colorLight : "#ffffff",
+          correctLevel : QRCode.CorrectLevel.H
+        });
+      }
+    </script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      form {
+        margin: 30px 0;
+      }
+      label {
+        font-weight: bold;
+        margin-right: 10px;
+      }
+      input[type="text"] {
+        padding: 10px;
+        font-size: 16px;
+      }
+      input[type="button"] {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      input[type="button"]:hover {
+        background-color: #3e8e41;
+      }
+      #qrcode {
+  margin: 30px auto;
+  display: block;
+  position: relative; /* Add this */
+  left: 50%; /* Add this */
+  transform: translateX(-50%); /* Add this */
+}
+    </style>
+  </head>
+  <body>
+    <h1>QR Code Generator</h1>
+    <form>
+      <label for="link">Link:</label>
+      <input type="text" id="link" name="link" placeholder="Kopieer en plak een link hier">
+      <input type="button" value="Genereer QR-code" onclick="generateQR()">
+    </form>
+    <div id="qrcode"></div>
+  </body>
+</html>
